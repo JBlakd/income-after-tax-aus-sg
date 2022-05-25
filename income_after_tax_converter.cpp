@@ -143,8 +143,10 @@ int main() {
                 return 0;
         }
 
-        system("pause");
-        std::cout << '\n';
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        std::cout << "\n";
     }
     return 0;
 }
