@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import sys
 
 
 def calc_tax(income):
@@ -31,5 +32,12 @@ def calc_tax(income):
 gross_incomes = list(range(0, 180000, 100))
 after_tax_incomes = [(value - calc_tax(value)) for value in gross_incomes]
 
-plt.plot(gross_incomes, after_tax_incomes)
-plt.show()
+if len(sys.argv) >= 2:
+    income = float(sys.argv[2])
+    print(
+        f"after-tax value of {sys.argv[2]} in Singapore is {income - calc_tax(float(sys.argv[2]))}"
+    )
+
+if "noplot" not in sys.argv:
+    plt.plot(gross_incomes, after_tax_incomes)
+    plt.show()
